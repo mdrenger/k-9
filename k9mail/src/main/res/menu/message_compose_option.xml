@@ -50,6 +50,18 @@
         android:showAsAction="never"
         />
     <item
+        android:id="@+id/openpgp_encrypt_enable"
+        android:alphabeticShortcut="c"
+        android:title="Enable Encryption"
+        android:showAsAction="never"
+        />
+    <item
+        android:id="@+id/openpgp_encrypt_disable"
+        android:alphabeticShortcut="c"
+        android:title="Disable Encryption"
+        android:showAsAction="never"
+        />
+    <item
         android:id="@+id/openpgp_sign_only"
         android:alphabeticShortcut="g"
         android:title="@string/enable_sign_only"
