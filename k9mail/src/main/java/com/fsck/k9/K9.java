@@ -26,6 +26,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.StrictMode;
+import android.support.annotation.StringRes;
 
 import com.fsck.k9.Account.SortType;
 import com.fsck.k9.activity.MessageCompose;
@@ -1450,4 +1451,11 @@ public class K9 extends Application {
         }.execute();
     }
 
+    public static String getK9String(@StringRes int resId) {
+        return app.getString(resId);
+    }
+
+    public static String getK9String(@StringRes int resId, Object... args) {
+        return app.getString(resId, args);
+    }
 }

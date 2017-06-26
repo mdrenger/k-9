@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
+
+import com.fsck.k9.activity.setup.autoconfiguration.AccountSetupAutoConfigurationPresenter.CheckDirection;
 import timber.log.Timber;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +21,6 @@ import com.fsck.k9.*;
 import com.fsck.k9.Account.FolderMode;
 import com.fsck.k9.mail.NetworkType;
 import com.fsck.k9.activity.K9Activity;
-import com.fsck.k9.activity.setup.AccountSetupCheckSettings.CheckDirection;
 import com.fsck.k9.helper.Utility;
 import com.fsck.k9.mail.AuthType;
 import com.fsck.k9.mail.ConnectionSecurity;

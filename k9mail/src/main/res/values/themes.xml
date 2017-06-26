@@ -177,4 +177,6 @@
     </style>
 
     <style name="Theme.K9.Transparent" parent="@android:style/Theme.NoDisplay" />
+
+    <style name="Theme.K9.Material" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>
