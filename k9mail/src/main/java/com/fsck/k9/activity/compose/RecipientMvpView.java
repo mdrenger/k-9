@@ -51,7 +51,7 @@ public class RecipientMvpView implements OnFocusChangeListener, OnClickListener 
     private final RecipientSelectView bccView;
     private final ToolableViewAnimator cryptoStatusView;
     private final ViewAnimator recipientExpanderContainer;
-    private final ViewAnimator cryptoSpecialModeIndicator;
+    private final ToolableViewAnimator cryptoSpecialModeIndicator;
     private RecipientPresenter presenter;
 
 
@@ -68,7 +68,7 @@ public class RecipientMvpView implements OnFocusChangeListener, OnClickListener 
         recipientExpanderContainer = (ViewAnimator) activity.findViewById(R.id.recipient_expander_container);
         cryptoStatusView = (ToolableViewAnimator) activity.findViewById(R.id.crypto_status);
         cryptoStatusView.setOnClickListener(this);
-        cryptoSpecialModeIndicator = (ViewAnimator) activity.findViewById(R.id.crypto_special_mode);
+        cryptoSpecialModeIndicator = (ToolableViewAnimator) activity.findViewById(R.id.crypto_special_mode);
         cryptoSpecialModeIndicator.setOnClickListener(this);
 
         toView.setOnFocusChangeListener(this);
@@ -292,14 +292,14 @@ public class RecipientMvpView implements OnFocusChangeListener, OnClickListener 
     }
 
     public void showCryptoSpecialMode(CryptoSpecialModeDisplayType cryptoSpecialModeDisplayType) {
-        boolean shouldBeHidden = cryptoSpecialModeDisplayType.childToDisplay == VIEW_INDEX_HIDDEN;
+        boolean shouldBeHidden = cryptoSpecialModeDisplayType.childIdToDisplay == VIEW_INDEX_HIDDEN;
         if (shouldBeHidden) {
             cryptoSpecialModeIndicator.setVisibility(View.GONE);
             return;
         }
 
         cryptoSpecialModeIndicator.setVisibility(View.VISIBLE);
-        cryptoSpecialModeIndicator.setDisplayedChild(cryptoSpecialModeDisplayType.childToDisplay);
+        cryptoSpecialModeIndicator.setDisplayedChildId(cryptoSpecialModeDisplayType.childIdToDisplay);
         activity.invalidateOptionsMenu();
     }
 
@@ -470,15 +470,15 @@ public class RecipientMvpView implements OnFocusChangeListener, OnClickListener 
 
     public enum CryptoSpecialModeDisplayType {
         NONE(VIEW_INDEX_HIDDEN),
-        PGP_INLINE(VIEW_INDEX_CRYPTO_SPECIAL_PGP_INLINE),
-        SIGN_ONLY(VIEW_INDEX_CRYPTO_SPECIAL_SIGN_ONLY),
-        SIGN_ONLY_PGP_INLINE(VIEW_INDEX_CRYPTO_SPECIAL_SIGN_ONLY_PGP_INLINE);
+        PGP_INLINE(R.id.crypto_special_inline),
+        SIGN_ONLY(R.id.crypto_special_sign_only),
+        SIGN_ONLY_PGP_INLINE(R.id.crypto_special_sign_only_inline);
 
 
-        final int childToDisplay;
+        final int childIdToDisplay;
 
-        CryptoSpecialModeDisplayType(int childToDisplay) {
-            this.childToDisplay = childToDisplay;
+        CryptoSpecialModeDisplayType(int childIdToDisplay) {
+            this.childIdToDisplay = childIdToDisplay;
         }
     }
 }
